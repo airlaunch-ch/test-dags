@@ -5,6 +5,8 @@ from airflow import DAG
 
 from airflow.operators.python import PythonOperator
 from airflow.utils.dates import days_ago
+from airflow.models import Variable
+
 
 fail_email = Variable.get("FAIL_EMAIL")
 
