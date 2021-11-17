@@ -6,11 +6,12 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.utils.dates import days_ago
 
+fail_email = Variable.get("FAIL_EMAIL")
 
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
-    'email': ['login@staubli.li'],
+    'email': [fail_email],
     'email_on_failure': True,
     'email_on_retry': True,
     'retries': 0,
